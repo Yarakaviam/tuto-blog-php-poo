@@ -1,3 +1,5 @@
 <?php
 
-echo 'Hello :)';
+require_once '../src/autoload.php';
+
+App::start();
