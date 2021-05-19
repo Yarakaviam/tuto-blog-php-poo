@@ -24,7 +24,6 @@ class App
             $page = $_GET['page'];
         }
 
-
         // ici afficher la page avec "require" !
         require __DIR__ . '/../pages/' . $page . '.php';
     }
