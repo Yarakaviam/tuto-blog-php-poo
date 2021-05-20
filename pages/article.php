@@ -11,11 +11,11 @@ $request = $pdo->prepare($sql);
 // On exécute la requête
 $request->execute([ $_GET['id']]);
 // On récupère UN seul article.
-$articles = $request->fetch(PDO::FETCH_ASSOC);
+$article = $request->fetch(PDO::FETCH_ASSOC);
 ?>
 
-<h1><?php $article['title']?></h1>
-<p><?php $article['article']?></p>
+<h1><?php echo $article['title']?></h1>
+<p><?php echo $article['content']?></p>
 <?php
 require __DIR__ . '/partials/themeEnd.php';
 ?>
