@@ -26,6 +26,15 @@ class App
             $page = $_GET['page'];
         }
 
+        // file_exists('/chemin/vers/le/fichier.php') retourne true
+        // si le fichier existe, false sinon.
+
+        // Exercice:
+        // 1. Créer une page "notFound.php" dans le répertoire
+        // pages.
+        // 2. Dans App.php on test si notre page existe. Si oui,
+        // on require, sinon on require la page "notFound.php"
+
         // ici afficher la page avec "require" !
         require __DIR__ . '/../pages/' . $page . '.php';
     }
