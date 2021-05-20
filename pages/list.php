@@ -1,4 +1,4 @@
-<?
+<?php
 
 /**
  * Ici inclure avec "require" le fichier "themeStart.php"
