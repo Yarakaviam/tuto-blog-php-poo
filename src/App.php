@@ -1,5 +1,7 @@
 <?php
 
+use Table\ArticleTable;
+
 /**
  * La class App est le point d'entré de notre application. C'est
  * l'objet principal !
@@ -16,7 +18,8 @@ class App
         // ex: $_GET['page'] retourne la query string "page"
         // la fonction isset(...) permet de tester si un
         // élement est présent dans un tableaux.
-
+        $pdo = new PDO('mysql:dbname=php-poo-blog;host=localhost', 'root', '');
+        $articleTable = new ArticleTable($pdo);
 
         // ETAPE 1 : Nous récupérons le nom de la page demandée
         $pageName = 'list';
