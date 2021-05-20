@@ -1,3 +1,9 @@
+<?
+
+/**
+ * Ici inclure avec "require" le fichier "themeStart.php"
+ */
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,6 +38,11 @@
     <div class="container">
         <div class="text-center mt-5">
             <h1>Bienvenue</h1>
+            <?
+            /**
+             * Ici inclure avec "require" le fichier "themeEnd.php"
+             */
+            ?>
         </div>
     </div>
 </body>
