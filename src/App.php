@@ -21,6 +21,8 @@ class App
 
         // Ici on test si on a envoyé la query "page"
         if (isset($_GET['page'])) {
+            // Si la query page existe dans ce cas nous l'assignons
+            // à notre variable page
             $page = $_GET['page'];
         }
 
