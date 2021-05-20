@@ -16,6 +16,7 @@ if (empty($article)) {
     throw new Exception('Article not found');
 }
 
+
 ?>
 
 <h1><?php echo $article['title']?></h1>

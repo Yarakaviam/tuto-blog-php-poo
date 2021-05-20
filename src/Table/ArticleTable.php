@@ -3,6 +3,7 @@
 namespace Table;
 
 use PDO;
+use Exception;
 
 /**
  * Cette class permet de récupérer ainsi que de créer des articles
@@ -42,6 +43,7 @@ class ArticleTable
 
         // On récupére tout les articles
         $articles = $request->fetchAll();
+        
 
         return $articles;
     }
@@ -51,7 +53,20 @@ class ArticleTable
      */
     public function findOne(int $id): array
     {
-        return [];
+        $sql = 'SELECT * FROM articles WHERE id = ?';
+
+        // On prépare notre requète SQL
+        $request = $this->pdo->prepare($sql);
+
+        // On éxecute la requète
+        $request->execute([$_GET['id']]);
+
+        // On récupére tout les articles
+        $article = $request->fetch(PDO::FETCH_ASSOC);
+        if (empty($article)) {
+            throw new Exception('Article not found');
+        }
+        return $article;
     }
 
     /**
@@ -62,5 +77,17 @@ class ArticleTable
         string $description,
         string $content
     ): void {
+        // 3 : Création requête SQL, ne pas concaténer les valeurs directement, utiliser des "?"
+        $sql = 'INSERT INTO articles (title, description, content) VALUES (?, ?, ?)';
+
+        // 4 : Préparation de la requête SQL et nous récupéront une requête
+        $request = $this->pdo->prepare($sql);
+
+        // 5 : Envoyer la requête à la DB. Cela enregistre l'article dans la base.
+        $request->execute([
+        $title,
+        $description,
+        $content
+    ]);
     }
 }
