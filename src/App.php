@@ -17,25 +17,28 @@ class App
         // la fonction isset(...) permet de tester si un
         // élement est présent dans un tableaux.
 
-        $page = 'list';
+
+        // ETAPE 1 : Nous récupérons le nom de la page demandée
+        $pageName = 'list';
 
         // Ici on test si on a envoyé la query "page"
         if (isset($_GET['page'])) {
             // Si la query page existe dans ce cas nous l'assignons
             // à notre variable page
-            $page = $_GET['page'];
+            $pageName = $_GET['page'];
         }
 
         // file_exists('/chemin/vers/le/fichier.php') retourne true
         // si le fichier existe, false sinon.
 
-        // Exercice:
-        // 1. Créer une page "notFound.php" dans le répertoire
-        // pages.
-        // 2. Dans App.php on test si notre page existe. Si oui,
-        // on require, sinon on require la page "notFound.php"
+        // ETAPE 2 : Nous affichons la page demandée
 
-        // ici afficher la page avec "require" !
-        require __DIR__ . '/../pages/' . $page . '.php';
+        $pagePath = __DIR__ . '/../pages/' . $pageName . '.php';
+
+        if (file_exists($pagePath)) {
+            require $pagePath;
+        } else {
+            require __DIR__ . '/../pages/notFound.php';
+        }
     }
 }
