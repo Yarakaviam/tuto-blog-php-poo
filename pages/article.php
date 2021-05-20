@@ -12,6 +12,10 @@ $request = $pdo->prepare($sql);
 $request->execute([ $_GET['id']]);
 // On récupère UN seul article.
 $article = $request->fetch(PDO::FETCH_ASSOC);
+if (empty($article)) {
+    throw new Exception('Article not found');
+}
+
 ?>
 
 <h1><?php echo $article['title']?></h1>
