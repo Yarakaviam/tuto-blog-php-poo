@@ -6,5 +6,7 @@ RUN php composer-setup.php
 RUN php -r "unlink('composer-setup.php');"
 RUN ln -s /composer.phar /usr/bin/composer
 RUN chmod +x /usr/bin/composer
+RUN pecl install xdebug
+RUN docker-php-ext-enable xdebug
 
 CMD [ "composer" ]
