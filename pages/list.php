@@ -1,16 +1,5 @@
 <?php
 require __DIR__ . '/partials/themeStart.php';
-
-// Ici, au lieu d'utiliser PDO nous pouvons utiliser
-// notre instance de ArticleTable: $articleTable.
-
-// Faire en sorte que le code suivant fonctionne
-// $articles = $articleTable->findAll();
-
-
-
-$articles = $articleTable->findAll();
-
 ?>
 
 <h1>Bienvenue</h1>
